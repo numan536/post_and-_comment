@@ -1,0 +1,137 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.main-head {
+  height: 150px;
+  background: #fff;
+}
+
+.sidenav {
+  height: 100%;
+  background-color: #000;
+  overflow-x: hidden;
+  /*padding-top: 20px;*/
+}
+
+.main {
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  /*.sidenav {padding-top: 15px;}*/
+}
+
+@media screen and (max-width: 450px) {
+  .login-form {
+    margin-top: 10%;
+  }
+
+  .register-form {
+    margin-top: 10%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    margin-left: 40%;
+  }
+
+  .sidenav {
+    width: 40%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+
+  .login-form {
+    margin-top: 65%;
+    margin-left: 40px;
+  }
+
+  .register-form {
+    margin-top: 20%;
+  }
+}
+
+.login-main-text {
+  margin-top: 20%;
+  padding: 60px;
+  color: #fff;
+}
+
+.login-main-text h2 {
+  font-weight: 300;
+}
+
+.btn-black {
+  background-color: #73ccd2 !important;
+  color: #fff;
+}
+
+.btn-black:hover {
+  color: #fff;
+}
+
+.form {
+  margin-top: -90px;
+  margin-left: 60px;
+}
+.username {
+  color: purple;
+}
+.hacky {
+  font-weight: bold;
+  position: absolute !important;
+  top: 242px !important;
+  left: 839px !important;
+  color: #c2dc81;
+}
+.forget {
+  background-color: #f8f0cc !important;
+  border-color: #f8f0cc !important;
+}
+.form-control {
+  border: 4px #ffd24d solid;
+}
+.form-control:focus {
+  border: 4px #ffd24d solid;
+}
+.google-btn {
+  width: 175px;
+  height: 38px;
+  /* background-color: $google-blue; */
+  border-radius: 2px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  position: absolute;
+  margin-top: 1px;
+  margin-left: 1px;
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+}
+.google-btn {
+  margin-top: 16px !important;
+  /* position: absolute !important;
+  bottom: -4px !important;
+  left: 180px !important ; */
+}
+.google-icon {
+  position: absolute;
+  margin-top: 11px;
+  margin-left: 11px;
+  width: 18px;
+  height: 18px;
+}
+.btn-text {
+  float: right;
+  margin: 11px 11px 0 0;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  font-family: inherit;
+  font-weight: 100 !important;
+}
+.navbar-nav {
+  font-weight: bold;
+}
