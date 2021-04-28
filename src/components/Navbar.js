@@ -66,7 +66,6 @@ const Navbar = ({history}) => {
                   </a>
                 </li>
               )}
-
               <li class="home__li"></li>
             </ul>
           </div>
