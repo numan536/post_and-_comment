@@ -6,8 +6,9 @@ import {getHeaders} from '../utils';
 export const postsSlice = createSlice({
   name: 'posts',
   initialState: {
-    isLoading: true,
+    isLoading: false,
     data: [],
+    singlePost: {},
     isLoadingSubmit: false,
     error: null,
   },
@@ -45,6 +46,10 @@ export const postsSlice = createSlice({
       state.isLoadingSubmit = false;
       state.data = state.data.filter(item => item.id !== action.payload.id);
     },
+    get_single_post_success: (state, action) => {
+      state.singlePost = action.payload;
+      state.isLoading = false;
+    },
   },
 });
 
@@ -58,6 +63,7 @@ export const {
   submit_post_fail,
   update_post_success,
   delete_post_success,
+  get_single_post_success,
 } = postsSlice.actions;
 
 export const selectPosts = state => state.posts;
@@ -171,5 +177,11 @@ export const getSinglePost = async id => {
   } catch (err) {
     return {};
   }
+};
+
+export const fetchSinglePost = id => async dispatch => {
+  dispatch(posts_attempt());
+  const post = await getSinglePost(id);
+  dispatch(get_single_post_success(post));
 };
 export default postsSlice.reducer;

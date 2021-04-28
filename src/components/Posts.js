@@ -44,7 +44,8 @@ const Posts = () => {
                     />
                   </a>
                   <div class="media-body">
-                    <h4 class="media-heading">{post.title}</h4>
+                    
+                    <Link to={'/single-post/' + post.id}><h4 class="media-heading">{post.title}</h4></Link>
                     <h4>
                       {post?.user?.name || post?.user?.email?.split('@')[0]}
                     </h4>
@@ -128,11 +129,12 @@ const Posts = () => {
                                   <>
                                     <li>|</li>
                                     <span
-                                      onClick={() =>
-                                        dispatch(
-                                          deleteComment(post.id, comment._id)
-                                        )
-                                      }
+                                      onClick={() => {
+                                        if (window.confirm('are you sure?'))
+                                          dispatch(
+                                            deleteComment(post.id, comment._id)
+                                          );
+                                      }}
                                       disabled={isLoadingSubmit}
                                       style={{cursor: 'pointer'}}
                                     >

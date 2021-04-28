@@ -18,6 +18,7 @@ import {isValidToken} from './utils';
 import connect from './socketApi';
 import store from './store';
 import Navbar from './components/Navbar';
+import SinglePost from './components/SinglePost';
 
 connect('http://localhost:3001', store);
 
@@ -51,6 +52,9 @@ const App = () => {
         </PrivateRoute>
         <PrivateRoute path="/posts">
           <Posts />
+        </PrivateRoute>
+        <PrivateRoute path="/single-post">
+          <SinglePost />
         </PrivateRoute>
       </Switch>
     </>
