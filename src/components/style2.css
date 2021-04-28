@@ -136,8 +136,8 @@ body {
   font-weight: bold;
 }
 .box {
-  border: 1px solid black !important;
-  background-color: #f8f0cc !important;
+  border: 1px solid #73ccd2 !important;
+  background-color: #73ccd2 !important;
   color: white !important;
   border-radius: 7px;
 }
@@ -148,6 +148,27 @@ body {
   font-family: "Courier New", Courier, monospace;
   font-weight: bold !important;
 }
-.nav > li > a:hover {
+
+.regiter-btn {
+  background-color: #c2dc83 !important;
+  color: white !important;
+}
+.login-btn {
   background-color: #f8f0cc !important;
+  color: white !important;
+}
+.login-btn:hover {
+  background-color: #f8f0cc !important;
+}
+.login-btn:focus {
+  background-color: #f8f0cc !important;
+}
+.regiter-btn:hover {
+  background-color: #c2dc83 !important;
+}
+.regiter-btn:focus {
+  background-color: #c2dc83 !important;
+}
+.nav > li > a:focus {
+  background-color: #c2dc83 !important;
 }

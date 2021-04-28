@@ -44,18 +44,17 @@ const Navbar = ({history}) => {
               )}
               {!isLoggedIn && (
                 <>
-                  <li className="box login-box">
+                  <li className="box login-box login-btn">
                     <Link to="/login">Login</Link>
                   </li>
-                  <li className="box">
-                    
+                  <li className="box regiter-btn">
                     <Link to="/sign-up">Sign Up</Link>
                   </li>
                 </>
               )}
 
               {isLoggedIn && (
-                <li style={{cursor: 'pointer'}}>
+                <li style={{cursor: 'pointer'}} className="box login-btn">
                   <a
                     onClick={() => {
                       localStorage.removeItem('token');
