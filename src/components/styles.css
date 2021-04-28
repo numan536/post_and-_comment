@@ -15,9 +15,8 @@ body {
 }
 .home__link {
   color: white !important;
-
   font-size: 26px !important;
-  font-weight: bold !important;
+  font-family: fantasy;
 }
 .home__link2 {
   color: black;

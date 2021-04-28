@@ -34,20 +34,20 @@ const Navbar = ({history}) => {
             id="bs-example-navbar-collapse-1"
           >
             <ul class="nav navbar-nav navbar-right">
-              <li>
+              {/* <li>
                 <Link to="/">Home</Link>
-              </li>
+              </li> */}
               {isLoggedIn && (
-                <li>
+                <li className="box login-box">
                   <Link to="/create-post">New Post</Link>
                 </li>
               )}
               {!isLoggedIn && (
                 <>
-                  <li>
+                  <li className="box login-box">
                     <Link to="/login">Login</Link>
                   </li>
-                  <li>
+                  <li className="box">
                     
                     <Link to="/sign-up">Sign Up</Link>
                   </li>
@@ -63,7 +63,7 @@ const Navbar = ({history}) => {
                       history.push('/login');
                     }}
                   >
-                    LOG OUT
+                    Logout
                   </a>
                 </li>
               )}

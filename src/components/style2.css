@@ -135,3 +135,19 @@ body {
 .navbar-nav {
   font-weight: bold;
 }
+.box {
+  border: 1px solid black !important;
+  background-color: #f8f0cc !important;
+  color: white !important;
+  border-radius: 7px;
+}
+.login-box {
+  margin-right: 10px;
+}
+.navbar-nav > li {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold !important;
+}
+.nav > li > a:hover {
+  background-color: #f8f0cc !important;
+}
