@@ -16,7 +16,8 @@ body {
 .home__link {
   color: white !important;
   font-size: 26px !important;
-  font-family: fantasy;
+  font-family: Roboto;
+  font-weight: bold;
 }
 .home__link2 {
   color: black;
