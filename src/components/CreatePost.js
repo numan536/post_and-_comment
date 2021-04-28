@@ -66,19 +66,19 @@ const CreatePost = ({history, match}) => {
   const isLoadingSubmit = useSelector(state => state.posts.isLoadingSubmit);
   return (
     <div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-8 col-md-offset-2">
             <h1>{id ? 'Update' : 'Create'} Post</h1>
 
             <form onSubmit={handleSubmit}>
-              <div class="form-group">
+              <div className="form-group">
                 <label className="title" for="slug">
                   Title *
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   name="slug"
                   value={title}
                   onChange={e => setTitle(e.target.value)}
@@ -86,7 +86,7 @@ const CreatePost = ({history, match}) => {
                 />
               </div>
 
-              <div class="form-group">
+              <div className="form-group">
                 <label className="title " for="description">
                   Description
                 </label>
@@ -110,9 +110,9 @@ const CreatePost = ({history, match}) => {
                 />
               </div>
 
-              <div class="form-group">
+              <div className="form-group">
                 <button
-                  class="btn btn-default"
+                  className="btn btn-default"
                   onClick={() => history.push('/')}
                 >
                   Cancel
@@ -120,7 +120,7 @@ const CreatePost = ({history, match}) => {
                 <button
                   type="submit"
                   className="btn-1"
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   onClick={handleSubmit}
                   disabled={isLoadingSubmit}
                   style={{marginLeft: 7}}

@@ -9,31 +9,31 @@ const Navbar = ({history}) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <div>
-      {/*<div class="container-fluid">*/}
-      <nav class="navbar home__nav col-md-12">
-        <div class="container">
-          <div class="navbar-header">
+      {/*<div className="container-fluid">*/}
+      <nav className="navbar home__nav col-md-12">
+        <div className="container">
+          <div className="navbar-header">
             <button
               type="button"
-              class="navbar-toggle collapsed"
+              className="navbar-toggle collapsed"
               data-toggle="collapse"
               data-target="#bs-example-navbar-collapse-1"
               aria-expanded="false"
             >
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+              <span className="sr-only">Toggle navigation</span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
             </button>
-            <a class="navbar-brand home__link" href="/">
+            <a className="navbar-brand home__link" href="/">
               Hacky News
             </a>
           </div>
           <div
-            class="collapse navbar-collapse"
+            className="collapse navbar-collapse"
             id="bs-example-navbar-collapse-1"
           >
-            <ul class="nav navbar-nav navbar-right">
+            <ul className="nav navbar-nav navbar-right">
               {/* <li>
                 <Link to="/">Home</Link>
               </li> */}
@@ -66,7 +66,7 @@ const Navbar = ({history}) => {
                   </a>
                 </li>
               )}
-              <li class="home__li"></li>
+              <li className="home__li"></li>
             </ul>
           </div>
         </div>

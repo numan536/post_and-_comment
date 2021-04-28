@@ -44,19 +44,19 @@ const Signup = ({history}) => {
         <img src={signUpImage} width="100%" height="100%" />
       </div>
       <div className="col-md-6" style={{padding: 0, margin: 0}}>
-        <div class="col-md-6 col-sm-12">
-          <div class="login-form">
+        <div className="col-md-6 col-sm-12">
+          <div className="login-form">
             {error && (
-              <div class="alert alert-danger" role="alert">
+              <div className="alert alert-danger" role="alert">
                 {error}
               </div>
             )}
             <form onSubmit={handleSubmit}>
-              <div class="form-group">
+              <div className="form-group">
                 <label className="username">Name</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Name"
                   name="name"
                   value={name}
@@ -64,11 +64,11 @@ const Signup = ({history}) => {
                   required
                 />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label className="username">Email</label>
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Email"
                   name="email"
                   value={email}
@@ -76,11 +76,11 @@ const Signup = ({history}) => {
                   required
                 />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label className="username">Password</label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Password"
                   name="password"
                   value={password}
@@ -94,33 +94,33 @@ const Signup = ({history}) => {
                 </small>
               </div>{' '}*/}
               <Link to="/sign-up">
-                {/* <button type="submit" class="btn btn-black">
+                {/* <button type="submit" className="btn btn-black">
                   Login
                 </button> */}
               </Link>
               <button
                 type="submit"
-                class="btn btn-black"
+                className="btn btn-black"
                 onClick={handleSubmit}
                 disabled={isLoading}
               >
                 {isLoading ? 'Loading...' : 'SIGN UP'}
               </button>
-              <div class="google-btn">
-              <div class="google-icon-wrapper">
-                <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+              <div className="google-btn">
+              <div className="google-icon-wrapper">
+                <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
               </div>
-              <p class="btn-text"><b>Sign up with Google</b></p>
+              <p className="btn-text"><b>Sign up with Google</b></p>
             </div>
             </form>
-            {/*<div class="google-btn" style={{margin: 20}}>
-              <div class="google-icon-wrapper">
+            {/*<div className="google-btn" style={{margin: 20}}>
+              <div className="google-icon-wrapper">
                 <img
-                  class="google-icon"
+                  className="google-icon"
                   src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                 />
               </div>
-              <p class="btn-text">
+              <p className="btn-text">
                 <b>Sign up with google</b>
               </p>
             </div>*/}

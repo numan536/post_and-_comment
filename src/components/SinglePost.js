@@ -28,27 +28,27 @@ const SinglePost = ({match}) => {
   if (isLoading) return <Spinner />;
   return (
     <div>
-      <div class="container">
-        <div class="well" style={{padding: 5, marginBottom: 0}}>
-          <div class="media">
-            <a class="pull-left" href="#">
+      <div className="container">
+        <div className="well" style={{padding: 5, marginBottom: 0}}>
+          <div>
+            <a className="pull-left" href="#">
               <img
-                class="media-object"
+                className="media-object"
                 src={post.img || placeholder}
                 width="150px"
               />
             </a>
-            <div class="media-body">
-              <h4 class="media-heading">{post.title}</h4>
+            <div className="media-body">
+              <h4 className="media-heading">{post.title}</h4>
               <h4>{post?.user?.name || post?.user?.email?.split('@')[0]}</h4>
-              {/*<p class="text-right">
+              {/*<p className="text-right">
                       By {post?.user?.name || post?.user?.email?.split('@')[0]}
                     </p>*/}
               <p dangerouslySetInnerHTML={{__html: post.description}}></p>
-              <ul class="list-inline list-unstyled">
+              <ul className="list-inline list-unstyled">
                 <li>
                   <span>
-                    <i class="glyphicon glyphicon-calendar"></i>{' '}
+                    <i className="glyphicon glyphicon-calendar"></i>{' '}
                     {dayjs(post.createdAt)?.fromNow()}{' '}
                   </span>
                 </li>
@@ -62,7 +62,7 @@ const SinglePost = ({match}) => {
                       : setShowComment(true)
                   }
                 >
-                  <i class="glyphicon glyphicon-comment"></i>{' '}
+                  <i className="glyphicon glyphicon-comment"></i>{' '}
                   {post.comments?.length || 0} comments
                 </span>
 
@@ -70,12 +70,15 @@ const SinglePost = ({match}) => {
                   <>
                     <li>|</li>
                     <span
-                      onClick={() => dispatch(deletePost(post.id))}
+                      onClick={() => {
+                        if (window.confirm('are you sure?'))
+                          dispatch(deletePost(post.id));
+                      }}
                       disabled={isLoadingSubmit}
                       style={{cursor: 'pointer'}}
                     >
                       <a>
-                        <i class="glyphicon glyphicon-trash"></i>{' '}
+                        <i className="glyphicon glyphicon-trash"></i>{' '}
                         {isLoadingSubmit ? 'Loading...' : 'Delete'}
                       </a>
                     </span>
@@ -86,7 +89,7 @@ const SinglePost = ({match}) => {
                     <li>|</li>
                     <span style={{cursor: 'pointer'}}>
                       <Link to={'/edit-post/' + post.id}>
-                        <i class="glyphicon glyphicon-pencil"></i> Edit
+                        <i className="glyphicon glyphicon-pencil"></i> Edit
                       </Link>
                     </span>
                   </>
@@ -99,7 +102,7 @@ const SinglePost = ({match}) => {
                   {post.comments?.map(comment => {
                     return (
                       <div style={{margin: 7}}>
-                        <b class="text-left">
+                        <b className="text-left">
                           {' '}
                           {comment?.user?.name ||
                             comment?.user?.email?.split('@')[0]}
@@ -109,10 +112,10 @@ const SinglePost = ({match}) => {
                             __html: comment.content,
                           }}
                         ></p>
-                        <ul class="list-inline list-unstyled">
+                        <ul className="list-inline list-unstyled">
                           <li>
                             <span>
-                              <i class="glyphicon glyphicon-calendar"></i>{' '}
+                              <i className="glyphicon glyphicon-calendar"></i>{' '}
                               {dayjs(comment.createdAt)?.fromNow()}{' '}
                             </span>
                           </li>
@@ -121,14 +124,17 @@ const SinglePost = ({match}) => {
                             <>
                               <li>|</li>
                               <span
-                                onClick={() =>
-                                  dispatch(deleteComment(post.id, comment._id))
-                                }
-                                disabled={isLoadingSubmit}
-                                style={{cursor: 'pointer'}}
-                              >
+                                      onClick={() => {
+                                        if (window.confirm('are you sure?'))
+                                          dispatch(
+                                            deleteComment(post.id, comment._id)
+                                          );
+                                      }}
+                                      disabled={isLoadingSubmit}
+                                      style={{cursor: 'pointer'}}
+                                    >
                                 <a>
-                                  <i class="glyphicon glyphicon-trash"></i>{' '}
+                                  <i className="glyphicon glyphicon-trash"></i>{' '}
                                   {isLoadingSubmit ? 'Loading...' : 'Delete'}
                                 </a>
                               </span>

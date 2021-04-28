@@ -41,6 +41,7 @@ export const postsSlice = createSlice({
       state.data = state.data.map(item =>
         item.id === action.payload.id ? action.payload : item
       );
+      if(action.payload.id === state.singlePost.id) state.singlePost = action.payload
     },
     delete_post_success: (state, action) => {
       state.isLoadingSubmit = false;

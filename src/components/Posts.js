@@ -27,36 +27,37 @@ const Posts = () => {
   if (isLoading) return <Spinner />;
   return (
     <div>
-      <div class="container">
+      <div className="container">
         {postsData.length
           ? postsData.map((post, index) => (
               <div
-                class="well"
+                className="well"
                 key={post.id}
                 style={{padding: 5, marginBottom: 0}}
               >
-                <div class="media">
-                  <a class="pull-left" href="#">
+                <div className="media">
+                  <a className="pull-left" href="#">
                     <img
-                      class="media-object"
+                      className="media-object"
                       src={post.img || placeholder}
                       width="150px"
                     />
                   </a>
-                  <div class="media-body">
+                  <div className="media-body">
                     
-                    <Link to={'/single-post/' + post.id}><h4 class="media-heading">{post.title}</h4></Link>
+                    {/* <Link to={'/single-post/' + post.id}><h4 className="media-heading">{post.title}</h4></Link> */}
+                    <Link to={`/post/${post.id}`}><h4 className="media-heading">{post.title}</h4></Link>
                     <h4>
                       {post?.user?.name || post?.user?.email?.split('@')[0]}
                     </h4>
-                    {/*<p class="text-right">
+                    {/*<p className="text-right">
                       By {post?.user?.name || post?.user?.email?.split('@')[0]}
                     </p>*/}
                     <p dangerouslySetInnerHTML={{__html: post.description}}></p>
-                    <ul class="list-inline list-unstyled">
+                    <ul className="list-inline list-unstyled">
                       <li>
                         <span>
-                          <i class="glyphicon glyphicon-calendar"></i>{' '}
+                          <i className="glyphicon glyphicon-calendar"></i>{' '}
                           {dayjs(post.createdAt)?.fromNow()}{' '}
                         </span>
                       </li>
@@ -70,7 +71,7 @@ const Posts = () => {
                             : setShowComment(index)
                         }
                       >
-                        <i class="glyphicon glyphicon-comment"></i>{' '}
+                        <i className="glyphicon glyphicon-comment"></i>{' '}
                         {post.comments?.length || 0} comments
                       </span>
 
@@ -78,12 +79,15 @@ const Posts = () => {
                         <>
                           <li>|</li>
                           <span
-                            onClick={() => dispatch(deletePost(post.id))}
+                            onClick={() => {
+                              if (window.confirm('are you sure?'))
+                                dispatch(deletePost(post.id));
+                            }}
                             disabled={isLoadingSubmit}
                             style={{cursor: 'pointer'}}
                           >
                             <a>
-                              <i class="glyphicon glyphicon-trash"></i>{' '}
+                              <i className="glyphicon glyphicon-trash"></i>{' '}
                               {isLoadingSubmit ? 'Loading...' : 'Delete'}
                             </a>
                           </span>
@@ -94,7 +98,7 @@ const Posts = () => {
                           <li>|</li>
                           <span style={{cursor: 'pointer'}}>
                             <Link to={'/edit-post/' + post.id}>
-                              <i class="glyphicon glyphicon-pencil"></i> Edit
+                              <i className="glyphicon glyphicon-pencil"></i> Edit
                             </Link>
                           </span>
                         </>
@@ -107,7 +111,7 @@ const Posts = () => {
                         {post.comments?.map(comment => {
                           return (
                             <div style={{margin: 7}}>
-                              <b class="text-left">
+                              <b className="text-left">
                                 {' '}
                                 {comment?.user?.name ||
                                   comment?.user?.email?.split('@')[0]}
@@ -117,10 +121,10 @@ const Posts = () => {
                                   __html: comment.content,
                                 }}
                               ></p>
-                              <ul class="list-inline list-unstyled">
+                              <ul className="list-inline list-unstyled">
                                 <li>
                                   <span>
-                                    <i class="glyphicon glyphicon-calendar"></i>{' '}
+                                    <i className="glyphicon glyphicon-calendar"></i>{' '}
                                     {dayjs(comment.createdAt)?.fromNow()}{' '}
                                   </span>
                                 </li>
@@ -139,7 +143,7 @@ const Posts = () => {
                                       style={{cursor: 'pointer'}}
                                     >
                                       <a>
-                                        <i class="glyphicon glyphicon-trash"></i>{' '}
+                                        <i className="glyphicon glyphicon-trash"></i>{' '}
                                         {isLoadingSubmit
                                           ? 'Loading...'
                                           : 'Delete'}

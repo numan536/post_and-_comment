@@ -53,9 +53,9 @@ const App = () => {
         <PrivateRoute path="/posts">
           <Posts />
         </PrivateRoute>
-        <PrivateRoute path="/single-post">
+        <Route path="/post/:id">
           <SinglePost />
-        </PrivateRoute>
+        </Route>
       </Switch>
     </>
   );

@@ -10,9 +10,9 @@ const Home = ({history}) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
             <Posts />
           </div>
         </div>

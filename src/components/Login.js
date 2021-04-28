@@ -86,21 +86,21 @@ function Login({history}) {
               >
                 {isLoading ? 'Loading...' : 'SIGN IN'}
               </button>
-              <div class="google-btn">
-  <div class="google-icon-wrapper">
-    <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+              <div className="google-btn">
+  <div className="google-icon-wrapper">
+    <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
   </div>
-  <p class="btn-text"><b>Sign in with Google</b></p>
+  <p className="btn-text"><b>Sign in with Google</b></p>
 </div>
             </form>
-            {/*<div class="google-btn" style={{margin: 20}}>
-              <div class="google-icon-wrapper">
+            {/*<div className="google-btn" style={{margin: 20}}>
+              <div className="google-icon-wrapper">
                 <img
-                  class="google-icon"
+                  className="google-icon"
                   src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                 />
               </div>
-              <p class="btn-text">
+              <p className="btn-text">
                 <b>Sign in with google</b>
               </p>
             </div>*/}
