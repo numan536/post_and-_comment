@@ -24,7 +24,7 @@ body {
 
 @media screen and (max-width: 450px) {
   .login-form {
-    margin-top: 10%;
+    /*margin-top: 10%;*/
   }
 
   .register-form {
@@ -46,8 +46,8 @@ body {
   }
 
   .login-form {
-    margin-top: 65%;
-    margin-left: 40px;
+    /*margin-top: 65%;
+    margin-left: 40px;*/
   }
 
   .register-form {
@@ -84,9 +84,9 @@ body {
 .hacky {
   font-weight: bold;
   /* position: absolute !important; */
-  top: 242px !important;
+  /*top: 242px !important;*/
   color: #c2dc81;
-  position: relative;
+  /*position: relative;*/
 }
 .forget {
   background-color: #f8f0cc !important;

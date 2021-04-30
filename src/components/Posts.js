@@ -10,7 +10,7 @@ import placeholder from '../images/placeholder.jpg';
 import {deletePost} from './../slices/posts';
 import Comment from './Comment';
 import {selectIsLoggedIn, selectUser} from './../slices/auth';
-import "./style2.css";
+import './style2.css';
 
 dayjs.extend(relativeTime);
 
@@ -45,9 +45,10 @@ const Posts = () => {
                     />
                   </a>
                   <div className="media-body">
-                    
                     {/* <Link to={'/single-post/' + post.id}><h4 className="media-heading">{post.title}</h4></Link> */}
-                    <Link to={`/post/${post.id}`}><h4 className="media-heading">{post.title}</h4></Link>
+                    <Link to={`/post/${post.id}`}>
+                      <h4 className="media-heading">{post.title}</h4>
+                    </Link>
                     <h4>
                       {post?.user?.name || post?.user?.email?.split('@')[0]}
                     </h4>
@@ -81,7 +82,11 @@ const Posts = () => {
                           <li>|</li>
                           <span
                             onClick={() => {
-                              if (window.confirm('Are you want you want to delete the post?'))
+                              if (
+                                window.confirm(
+                                  'Are you want you want to delete the post?'
+                                )
+                              )
                                 dispatch(deletePost(post.id));
                             }}
                             disabled={isLoadingSubmit}
@@ -99,74 +104,81 @@ const Posts = () => {
                           <li>|</li>
                           <span style={{cursor: 'pointer'}}>
                             <Link to={'/edit-post/' + post.id}>
-                              <i className="glyphicon glyphicon-pencil"></i> Edit
+                              <i className="glyphicon glyphicon-pencil"></i>{' '}
+                              Edit
                             </Link>
                           </span>
                         </>
                       )}
                     </ul>
-
-                    {showComment === index ? (
-                      <div style={{margin: 10, marginTop: 17}}>
-                        <h4>Comments</h4>
-                        {post.comments?.map(comment => {
-                          return (
-                            <div style={{margin: 7}}>
-                              <b className="text-left c-name">
-                                {' '}
-                                {comment?.user?.name ||
-                                  comment?.user?.email?.split('@')[0]}
-                              </b>
-                              <p className="comment-s"
-                                dangerouslySetInnerHTML={{
-                                  __html: comment.content,
-                                }}
-                              ></p>
-                              <ul className="list-inline list-unstyled">
-                                <li>
-                                  <span>
-                                    <i className="glyphicon glyphicon-calendar"></i>{' '}
-                                    {dayjs(comment.createdAt)?.fromNow()}{' '}
-                                  </span>
-                                </li>
-
-                                {user.id === comment?.user?.id && (
-                                  <>
-                                    <li>|</li>
-                                    <span
-                                      onClick={() => {
-                                        if (window.confirm('Are you sure you want to delete the comment?'))
-                                          dispatch(
-                                            deleteComment(post.id, comment._id)
-                                          );
-                                      }}
-                                      disabled={isLoadingSubmit}
-                                      style={{cursor: 'pointer'}}
-                                    >
-                                      <a>
-                                        <i className="glyphicon glyphicon-trash"></i>{' '}
-                                        {isLoadingSubmit
-                                          ? 'Loading...'
-                                          : 'Delete'}
-                                      </a>
-                                    </span>
-                                  </>
-                                )}
-                              </ul>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    ) : (
-                      ''
-                    )}
-                    {showComment === index && isLoggedIn && (
-                      <Comment
-                        post={post}
-                        handleCancel={() => setShowComment(null)}
-                      />
-                    )}
                   </div>
+                  {showComment === index ? (
+                    <div style={{margin: 10, marginTop: 17}}>
+                      <hr />
+                      <h4>Comments</h4>
+                      {post.comments?.map(comment => {
+                        return (
+                          <div style={{margin: 7}}>
+                            <b className="text-left c-name">
+                              {' '}
+                              {comment?.user?.name ||
+                                comment?.user?.email?.split('@')[0]}
+                            </b>
+                            <p
+                              className="comment-s"
+                              dangerouslySetInnerHTML={{
+                                __html: comment.content,
+                              }}
+                            ></p>
+                            <ul className="list-inline list-unstyled">
+                              <li>
+                                <span>
+                                  <i className="glyphicon glyphicon-calendar"></i>{' '}
+                                  {dayjs(comment.createdAt)?.fromNow()}{' '}
+                                </span>
+                              </li>
+
+                              {user.id === comment?.user?.id && (
+                                <>
+                                  <li>|</li>
+                                  <span
+                                    onClick={() => {
+                                      if (
+                                        window.confirm(
+                                          'Are you sure you want to delete the comment?'
+                                        )
+                                      )
+                                        dispatch(
+                                          deleteComment(post.id, comment._id)
+                                        );
+                                    }}
+                                    disabled={isLoadingSubmit}
+                                    style={{cursor: 'pointer'}}
+                                  >
+                                    <a>
+                                      <i className="glyphicon glyphicon-trash"></i>{' '}
+                                      {isLoadingSubmit
+                                        ? 'Loading...'
+                                        : 'Delete'}
+                                    </a>
+                                  </span>
+                                </>
+                              )}
+                            </ul>
+                          </div>
+                        );
+                      })}
+                      <hr />
+                    </div>
+                  ) : (
+                    ''
+                  )}
+                  {showComment === index && isLoggedIn && (
+                    <Comment
+                      post={post}
+                      handleCancel={() => setShowComment(null)}
+                    />
+                  )}
                 </div>
               </div>
             ))

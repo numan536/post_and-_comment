@@ -10,67 +10,66 @@ const Navbar = ({history}) => {
   return (
     <div>
       {/*<div className="container-fluid">*/}
-      <nav className="navbar home__nav col-md-12">
-        <div className="container">
-          <div className="navbar-header">
-            <button
-              type="button"
-              className="navbar-toggle collapsed"
-              data-toggle="collapse"
-              data-target="#bs-example-navbar-collapse-1"
-              aria-expanded="false"
-            >
-              <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-            </button>
+      <nav class="navbar navbar-default home__nav">
+        <div class="container-fluid">
+          <div class="navbar-header">
             <a className="navbar-brand home__link" href="/">
               Hacky News
             </a>
           </div>
-          <div
-            className="collapse navbar-collapse"
-            id="bs-example-navbar-collapse-1"
-          >
-            <ul className="nav navbar-nav navbar-right">
-              {/* <li>
+          <ul class="nav navbar-nav navbar-right">
+            {/* <li>
                 <Link to="/">Home</Link>
               </li> */}
-              {isLoggedIn && (
-                <li className="box login-box">
-                  <Link to="/create-post">New Post</Link>
+            {isLoggedIn && (
+              <li
+                style={{marginRight: 35, color: 'white !important'}}
+                className="box login-box"
+              >
+                <Link style={{color: 'white'}} to="/create-post">
+                  New Post
+                </Link>
+              </li>
+            )}
+            {!isLoggedIn && (
+              <>
+                <li
+                  style={{marginRight: 35, color: 'white'}}
+                  className=" login-box login-btn"
+                >
+                  <Link to="/login">LOGIN</Link>
                 </li>
-              )}
-              {!isLoggedIn && (
-                <>
-                  <li className=" login-box login-btn">
-                    <Link to="/login">LOGIN</Link>
-                  </li>
-                  <li className="box regiter-btn">
-                    <Link style={{color:"white"}} to="/sign-up">SIGN UP</Link>
-                  </li>
-                </>
-              )}
+                <li
+                  style={{marginRight: 35, color: 'white'}}
+                  className="box regiter-btn"
+                >
+                  <Link style={{color: 'white'}} to="/sign-up">
+                    SIGN UP
+                  </Link>
+                </li>
+              </>
+            )}
 
-              {isLoggedIn && (
-                <li style={{cursor: 'pointer'}} className="box login-btn">
-                  <a
-                    onClick={() => {
-                      localStorage.removeItem('token');
-                      dispatch(set_isLoggedIn(false));
-                      history.push('/login');
-                    }}
-                  >
-                    Logout
-                  </a>
-                </li>
-              )}
-              <li className="home__li"></li>
-            </ul>
-          </div>
+            {isLoggedIn && (
+              <li
+                style={{cursor: 'pointer', color: 'white', marginRight: 35}}
+                className="box login-btn"
+              >
+                <a
+                  onClick={() => {
+                    localStorage.removeItem('token');
+                    dispatch(set_isLoggedIn(false));
+                    history.push('/login');
+                  }}
+                >
+                  Logout
+                </a>
+              </li>
+            )}
+            <li className="home__li"></li>
+          </ul>
         </div>
-      </nav>  
+      </nav>
     </div>
   );
 };

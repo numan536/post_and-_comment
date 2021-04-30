@@ -45,7 +45,10 @@ const Signup = ({history}) => {
       </div>
       <div className="col-md-6" style={{padding: 0, margin: 0}}>
         <div className="col-md-6 col-sm-12">
-          <div className="login-form">
+          <div
+            className="login-form"
+            style={{marginTop: '35%', marginLeft: 40}}
+          >
             {error && (
               <div className="alert alert-danger" role="alert">
                 {error}
@@ -107,11 +110,16 @@ const Signup = ({history}) => {
                 {isLoading ? 'Loading...' : 'SIGN UP'}
               </button>
               <div className="google-btn">
-              <div className="google-icon-wrapper">
-                <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                <div className="google-icon-wrapper">
+                  <img
+                    className="google-icon"
+                    src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                  />
+                </div>
+                <p className="btn-text">
+                  <b>Sign up with Google</b>
+                </p>
               </div>
-              <p className="btn-text"><b>Sign up with Google</b></p>
-            </div>
             </form>
             {/*<div className="google-btn" style={{margin: 20}}>
               <div className="google-icon-wrapper">
