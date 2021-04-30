@@ -34,7 +34,7 @@ const Comment = ({post, handleCancel}) => {
         />
         <div style={{margin: 10}}>
           <button
-            className="btn btn-primary"
+            className="btn btn-primary post"
             disabled={loading}
             onClick={handleSubmit}
           >
@@ -42,7 +42,7 @@ const Comment = ({post, handleCancel}) => {
           </button>
           <button
             className="btn btn-danger"
-            style={{marginLeft: 7}}
+            style={{marginLeft: 7 ,  backgroundColor: "#73ccd2"}}
             onClick={handleCancel}
           >
             Cancel

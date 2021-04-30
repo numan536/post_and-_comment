@@ -83,7 +83,7 @@ body {
 }
 .hacky {
   font-weight: bold;
-  position: absolute !important;
+  /* position: absolute !important; */
   top: 242px !important;
   left: 839px !important;
   color: #c2dc81;
@@ -171,4 +171,37 @@ body {
 }
 .nav > li > a:focus {
   background-color: #c2dc83 !important;
+}
+.c-name {
+  color: #73ccd2;
+  font-weight: bold;
+  font-size: 20px;
+}
+.comment-s {
+  color: #777;
+  font-weight: bold;
+  border: 3px #ffd24d solid;
+  height: 40px;
+}
+.popup {
+  background-color: brown;
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+.cancel-btn {
+  background-color: #73ccd2;
+  color: white;
+}
+.cancel-btn:hover {
+  background-color: #73ccd2 !important;
+  color: white;
+}
+.post {
+  background-color: tomato !important;
+  width: 71px;
+  margin-top: 16px;
 }

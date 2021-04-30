@@ -18,6 +18,7 @@ body {
   font-size: 26px !important;
   font-family: Roboto;
   font-weight: bold;
+  margin-left: -160px !important;
 }
 .home__link2 {
   color: black;
@@ -184,4 +185,27 @@ html,
 .description {
   height: 34px !important;
   width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .home__link {
+    margin-left: 20px !important;
+  }
+}
+@media screen and (min-width: 360px) {
+  .home__link {
+    margin-left: 20px !important;
+  }
+}
+
+@media screen and (min-width: 360px) {
+  .hacky {
+    margin-left: 20px !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hacky {
+    margin-right: 20px !important;
+  }
 }

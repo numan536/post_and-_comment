@@ -71,7 +71,7 @@ const SinglePost = ({match}) => {
                     <li>|</li>
                     <span
                       onClick={() => {
-                        if (window.confirm('are you sure?'))
+                        if (window.confirm('Are you sure you want to delete the post?'))
                           dispatch(deletePost(post.id));
                       }}
                       disabled={isLoadingSubmit}
@@ -98,16 +98,16 @@ const SinglePost = ({match}) => {
 
               {showComment ? (
                 <div style={{margin: 10, marginTop: 17}}>
-                  <h4>Comments</h4>
+                  <h3>Comments</h3>
                   {post.comments?.map(comment => {
                     return (
-                      <div style={{margin: 7}}>
-                        <b className="text-left">
+                      <div className="card" style={{margin: 7}}>
+                        <b className="text-left c-name">
                           {' '}
                           {comment?.user?.name ||
                             comment?.user?.email?.split('@')[0]}
                         </b>
-                        <p
+                        <p className='comment-s'
                           dangerouslySetInnerHTML={{
                             __html: comment.content,
                           }}
@@ -125,7 +125,8 @@ const SinglePost = ({match}) => {
                               <li>|</li>
                               <span
                                       onClick={() => {
-                                        if (window.confirm('are you sure?'))
+                                        if (window.confirm('Are you sure ou want to delete the comment?'))
+                                        
                                           dispatch(
                                             deleteComment(post.id, comment._id)
                                           );
@@ -152,6 +153,7 @@ const SinglePost = ({match}) => {
                 <Comment
                   post={post}
                   handleCancel={() => setShowComment(null)}
+                  style={{backgroundColor: "#73ccd2"}}
                 />
               )}
             </div>

@@ -31,7 +31,7 @@ export const authSlice = createSlice({
       state.error = _.get(
         action.payload,
         'response.data.message',
-        'Input error Try again'
+        'Input Error! Try again!'
       );
     },
     signup_attempt: state => {
@@ -46,7 +46,7 @@ export const authSlice = createSlice({
       state.error = _.get(
         action.payload,
         'response.data.message',
-        'Input error Try again'
+        'Input Error! Try again!'
       );
     },
     single_user_attempt: state => {

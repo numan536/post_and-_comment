@@ -10,6 +10,7 @@ import placeholder from '../images/placeholder.jpg';
 import {deletePost} from './../slices/posts';
 import Comment from './Comment';
 import {selectIsLoggedIn, selectUser} from './../slices/auth';
+import "./style2.css";
 
 dayjs.extend(relativeTime);
 
@@ -80,7 +81,7 @@ const Posts = () => {
                           <li>|</li>
                           <span
                             onClick={() => {
-                              if (window.confirm('are you sure?'))
+                              if (window.confirm('Are you want you want to delete the post?'))
                                 dispatch(deletePost(post.id));
                             }}
                             disabled={isLoadingSubmit}
@@ -111,12 +112,12 @@ const Posts = () => {
                         {post.comments?.map(comment => {
                           return (
                             <div style={{margin: 7}}>
-                              <b className="text-left">
+                              <b className="text-left c-name">
                                 {' '}
                                 {comment?.user?.name ||
                                   comment?.user?.email?.split('@')[0]}
                               </b>
-                              <p
+                              <p className="comment-s"
                                 dangerouslySetInnerHTML={{
                                   __html: comment.content,
                                 }}
@@ -134,7 +135,7 @@ const Posts = () => {
                                     <li>|</li>
                                     <span
                                       onClick={() => {
-                                        if (window.confirm('are you sure?'))
+                                        if (window.confirm('Are you sure you want to delete the comment?'))
                                           dispatch(
                                             deleteComment(post.id, comment._id)
                                           );

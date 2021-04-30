@@ -1,16 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 
-import {withRouter} from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
-import ReactQuill from 'react-quill';
-import ImageUploader from 'react-images-upload';
+import { withRouter } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import ReactQuill from "react-quill";
+import ImageUploader from "react-images-upload";
 
-import Navbar from './Navbar';
-import {getSinglePost, submitPost, updatePost} from '../slices/posts';
-import './styles.css';
+import Navbar from "./Navbar";
+import { getSinglePost, submitPost, updatePost } from "../slices/posts";
+import "./styles.css";
 
 function dataURLtoFile(dataurl, filename) {
-  var arr = dataurl.split(','),
+  var arr = dataurl.split(","),
     mime = arr[0].match(/:(.*?);/)[1],
     bstr = atob(arr[1]),
     n = bstr.length,
@@ -20,23 +20,23 @@ function dataURLtoFile(dataurl, filename) {
     u8arr[n] = bstr.charCodeAt(n);
   }
 
-  return new File([u8arr], filename, {type: mime});
+  return new File([u8arr], filename, { type: mime });
 }
 
-const CreatePost = ({history, match}) => {
+const CreatePost = ({ history, match }) => {
   const id = match?.params.id;
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [image, setImage] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
   const [file, setFile] = useState([]);
   const dispatch = useDispatch();
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (title && description) {
-      const data = {title, description, img: image || ''};
+      const data = { title, description, img: image || "" };
       if (!id) await dispatch(submitPost(data));
       if (id) await dispatch(updatePost(id, data));
-      history.push('/');
+      history.push("/");
     }
   };
 
@@ -45,10 +45,10 @@ const CreatePost = ({history, match}) => {
       (async () => {
         const post = await getSinglePost(id);
 
-        setImage(post.img || '');
-        setTitle(post.title || '');
-        setDescription(post.description || '');
-        if (post.img) setFile(dataURLtoFile(post.img, 'image'));
+        setImage(post.img || "");
+        setTitle(post.title || "");
+        setDescription(post.description || "");
+        if (post.img) setFile(dataURLtoFile(post.img, "image"));
       })();
     }
   }, []);
@@ -63,13 +63,13 @@ const CreatePost = ({history, match}) => {
       reader.readAsDataURL(singleFile);
     }
   }, [file]);
-  const isLoadingSubmit = useSelector(state => state.posts.isLoadingSubmit);
+  const isLoadingSubmit = useSelector((state) => state.posts.isLoadingSubmit);
   return (
     <div>
       <div className="container">
         <div className="row">
           <div className="col-md-8 col-md-offset-2">
-            <h1>{id ? 'Update' : 'Create'} Post</h1>
+            <h1>{id ? "Update" : "Create"} Post</h1>
 
             <form onSubmit={handleSubmit}>
               <div className="form-group">
@@ -81,14 +81,14 @@ const CreatePost = ({history, match}) => {
                   className="form-control"
                   name="slug"
                   value={title}
-                  onChange={e => setTitle(e.target.value)}
+                  onChange={(e) => setTitle(e.target.value)}
                   required
                 />
               </div>
 
               <div className="form-group">
                 <label className="title " for="description">
-                  Description
+                  URL
                 </label>
                 <ReactQuill
                   value={description}
@@ -103,7 +103,7 @@ const CreatePost = ({history, match}) => {
                   withIcon={true}
                   buttonText="Choose image"
                   onChange={setFile}
-                  imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                  imgExtension={[".jpg", ".gif", ".png", ".gif"]}
                   maxFileSize={5242880}
                   singleImage
                   withPreview
@@ -112,20 +112,19 @@ const CreatePost = ({history, match}) => {
 
               <div className="form-group">
                 <button
-                  className="btn btn-default"
-                  onClick={() => history.push('/')}
-                >
-                  Cancel
-                </button>
-                <button
                   type="submit"
                   className="btn-1"
-                  className="btn btn-primary"
+                  className="btn btn-primary post"
                   onClick={handleSubmit}
                   disabled={isLoadingSubmit}
-                  style={{marginLeft: 7}}
                 >
-                  {isLoadingSubmit ? 'Loading...' : id ? 'Update' : 'Create'}
+                  {isLoadingSubmit ? "Loading..." : id ? "Update" : "Create"}
+                </button>
+                <button
+                  className="btn btn-default cancel-btn"
+                  onClick={() => history.push("/")}
+                >
+                  Cancel
                 </button>
               </div>
             </form>
