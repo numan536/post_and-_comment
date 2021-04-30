@@ -85,8 +85,8 @@ body {
   font-weight: bold;
   /* position: absolute !important; */
   top: 242px !important;
-  left: 839px !important;
   color: #c2dc81;
+  position: relative;
 }
 .forget {
   background-color: #f8f0cc !important;
@@ -153,25 +153,16 @@ body {
   background-color: #c2dc83 !important;
   color: white !important;
 }
-.login-btn {
-  background-color: #f8f0cc !important;
-  color: white !important;
-}
-.login-btn:hover {
-  background-color: #f8f0cc !important;
-}
-.login-btn:focus {
-  background-color: #f8f0cc !important;
-}
-.regiter-btn:hover {
+
+/* .regiter-btn:hover {
   background-color: #c2dc83 !important;
-}
-.regiter-btn:focus {
+} */
+/* .regiter-btn:focus {
   background-color: #c2dc83 !important;
-}
-.nav > li > a:focus {
+} */
+/* .nav > li > a:focus {
   background-color: #c2dc83 !important;
-}
+} */
 .c-name {
   color: #73ccd2;
   font-weight: bold;
@@ -182,6 +173,7 @@ body {
   font-weight: bold;
   border: 3px #ffd24d solid;
   height: 40px;
+  padding: 10px;
 }
 .popup {
   background-color: brown;
@@ -204,4 +196,7 @@ body {
   background-color: tomato !important;
   width: 71px;
   margin-top: 16px;
+}
+.login-btn > a {
+  color: white !important;
 }

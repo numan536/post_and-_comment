@@ -44,11 +44,11 @@ const Navbar = ({history}) => {
               )}
               {!isLoggedIn && (
                 <>
-                  <li className="box login-box login-btn">
-                    <Link to="/login">Login</Link>
+                  <li className=" login-box login-btn">
+                    <Link to="/login">LOGIN</Link>
                   </li>
                   <li className="box regiter-btn">
-                    <Link to="/sign-up">Sign Up</Link>
+                    <Link style={{color:"white"}} to="/sign-up">SIGN UP</Link>
                   </li>
                 </>
               )}

@@ -194,7 +194,7 @@ html,
 }
 @media screen and (min-width: 360px) {
   .home__link {
-    margin-left: 20px !important;
+    margin-left: 20px;
   }
 }
 
@@ -207,5 +207,10 @@ html,
 @media screen and (min-width: 768px) {
   .hacky {
     margin-right: 20px !important;
+  }
+}
+@media screen and (max-width: 900px) {
+  .home__link {
+    margin-left: 160px !important;
   }
 }
